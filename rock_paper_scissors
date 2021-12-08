@@ -1,0 +1,40 @@
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        System.out.println("1 : rock / 2 = paper / 3 = scissors");
+        System.out.println("Please make your choice.");
+        int gradeComputer = 0;
+        int gradeUser = 0;
+        Scanner input = new Scanner(System.in);
+
+        while (gradeComputer<5 && gradeUser<5) {
+            int num1 = (int) (Math.random() * 3 ) +1;
+            int guess = input.nextInt();
+            if (guess == 1 && num1 == 1 || guess == 2 && num1 ==2 || guess == 3 && num1 == 3) {
+                System.out.println("The Computer also chose " + num1);
+                System.out.println("This round is deuce.");
+            }
+            else if (guess == 1 && num1 == 2 || guess == 2 && num1 ==3 || guess == 3 && num1 ==1) {
+                System.out.println("The Computer chose " + num1);
+                System.out.println("This round is won by The Computer.");
+                gradeComputer++;
+            }
+            else if (guess == 2 && num1 == 1 || guess == 3 && num1 ==2 || guess == 1 && num1 ==3){
+                System.out.println("The Computer chose " + num1);
+                System.out.println("This round is won by you.");
+                gradeUser++;
+            }
+            else {
+                System.out.println("Please chose between 1, 2, 3!!");
+            }
+        }
+        if (gradeComputer==5) {
+            System.out.println("The game is won by The Computer." + "Your score is : " + gradeUser);
+        }
+        else {
+            System.out.println("You won! " + "The Computer scored just " + gradeComputer);
+        }
+    }
+}
